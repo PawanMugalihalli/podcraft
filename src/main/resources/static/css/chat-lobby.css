@@ -1,0 +1,245 @@
+/* Body and container base */
+body {
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    border-radius: 16px;
+    overflow: hidden; /* Prevent container scrolling */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.05),
+        0 12px 24px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    align-items: flex-start; /* so left panel height depends on content */
+}
+
+/* Left panel styling */
+.left-panel {
+    width: 30%;
+    background: #ffffff;
+    padding: 36px 32px;
+    border-right: 1.5px solid #cbd5e1; /* subtle consistent border */
+    overflow-y: auto;
+    box-shadow: inset -1px 0 0 #e2e8f0;
+}
+
+/* Right panel styling */
+.right-panel {
+    width: 70%;
+    background: #f9fafb;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Scroll container with smooth horizontal scrolling */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1.5px solid #cbd5e1; /* subtle border added */
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.05);
+    scrollbar-width: thin;
+    scrollbar-color: #90a4ae transparent;
+    flex-grow: 1;
+    scroll-behavior: smooth;
+}
+
+/* Webkit scrollbar styles */
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #90a4ae;
+    border-radius: 8px;
+}
+
+.room-card {
+    min-width: 300px;
+    max-width: 320px;
+    background: linear-gradient(145deg, #ffffff, #f1f5f9);
+    border: 1.5px solid #2563eb;
+    border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow:
+        4px 4px 10px rgba(197, 205, 218, 0.5),
+        -4px -4px 10px #ffffff,
+        0 0 8px 2px rgba(37, 99, 235, 0.15); /* subtle blue accent glow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    cursor: pointer;
+    color: #334155;
+}
+
+.room-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:
+        8px 8px 18px rgba(102, 126, 234, 0.3),
+        -8px -8px 18px #ffffff,
+        0 0 12px 3px rgba(59, 130, 246, 0.3); /* stronger glow on hover */
+    border-color: #3b82f6;
+}
+
+
+/* Room title */
+.room-card h6 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1e293b;
+    letter-spacing: 0.02em;
+}
+
+/* Room metadata grid */
+.room-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 24px;
+    font-size: 14.5px;
+    color: #64748b;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Room meta label and values */
+.room-meta > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Buttons container */
+.room-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+/* Buttons style */
+.room-buttons .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
+    cursor: pointer;
+    border: none;
+}
+
+/* Join button */
+.room-buttons .btn.btn-outline-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+}
+.room-buttons .btn.btn-outline-primary:hover {
+    background-color: #1e40af;
+    box-shadow: 0 6px 12px rgba(30, 64, 175, 0.4);
+}
+
+/* Copy code button */
+.room-buttons .btn.btn-outline-secondary {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: none;
+    box-shadow: none;
+}
+.room-buttons .btn.btn-outline-secondary:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    box-shadow: 0 4px 10px rgba(71, 85, 105, 0.2);
+}
+
+/* Headings style */
+h4 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 28px;
+    letter-spacing: 0.03em;
+}
+
+/* Form inputs styling */
+input[type="text"], select, .form-control, .form-select {
+    border-radius: 10px;
+    border: 1.8px solid #cbd5e1;
+    padding: 12px 14px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #475569;
+}
+
+input[type="text"]:focus, select:focus, .form-control:focus, .form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+    outline: none;
+}
+
+/* Buttons on form */
+button.btn-primary, button.btn-success {
+    border-radius: 12px !important;
+    padding: 14px 0;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+    transition: background-color 0.35s ease;
+}
+
+button.btn-primary:hover {
+    background-color: #1e40af;
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.5);
+}
+
+button.btn-success:hover {
+    background-color: #15803d;
+    box-shadow: 0 8px 20px rgba(21, 128, 61, 0.5);
+}
+
+/* Scroll container responsiveness */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding: 24px 16px;
+    }
+    .left-panel {
+        border-right: none;
+        border-bottom: 1.5px solid #cbd5e1; /* bottom border on mobile */
+        border-radius: 0 0 16px 16px;
+    }
+    .scroll-container {
+        padding: 16px 8px;
+        gap: 16px;
+        border-radius: 12px;
+    }
+    .room-card {
+        min-width: 260px;
+        max-width: 280px;
+        padding: 20px 22px;
+    }
+}

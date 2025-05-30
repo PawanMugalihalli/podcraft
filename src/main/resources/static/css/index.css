@@ -1,0 +1,48 @@
+body {
+            background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #fff !important;
+        }
+
+        .btn-dashboard {
+            background-color: #6f42c1;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            margin-right: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-dashboard:hover {
+            background-color: #5a35a1;
+            color: white;
+        }
+
+        .hero-section {
+            margin-top: 80px;
+            padding: 60px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-lobby {
+            font-size: 1.3rem;
+            padding: 14px 28px;
+            border-radius: 10px;
+        }
+
+        .dropdown-menu {
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #888;
+        }

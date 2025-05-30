@@ -1,0 +1,121 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #202124;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #1a73e8;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Incoming Call Alert */
+#incomingCall {
+    background-color: #fff8e1;
+    border: 1px solid #ffecb3;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: none;
+    font-size: 1rem;
+    color: #795548;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1558b0;
+}
+
+#endCall {
+    background-color: #ea4335;
+    display: none;
+}
+
+#endCall:hover {
+    background-color: #c62828;
+}
+
+/* Online Users */
+.online-users {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.online-users h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #1a73e8;
+}
+
+.online-users h2 {
+    font-size: 1rem;
+    color: #999;
+}
+
+#userList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Video Display */
+.videos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+video {
+    width: 320px;
+    height: 240px;
+    border-radius: 10px;
+    background-color: #000;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
