@@ -11,6 +11,7 @@ let hostUrl;
 let guestUrl;
 let flag = '0';
 let candidateQueue = [];
+let lat1;
 
 
 const config = {
@@ -37,10 +38,20 @@ function connectSocket() {
     stompClient.connect({}, () => {
         ['call', 'offer', 'answer', 'candidate', 'end'].forEach(type => {
             stompClient.subscribe(`/user/queue/${roomCode}/${type}`, msg => {
+
                 const data = type === 'call' ? msg.body : JSON.parse(msg.body);
                 handleSignal(type, data);
             });
         });
+
+        stompClient.subscribe("/queue/pong", (message) => {
+            console.log(message.body)
+            const lat2 = Date.now();
+            const latency = lat2 - lat1;
+            console.log(`WebSocket signaling latency: ${latency}ms`);
+        });
+        lat1 = Date.now();
+                stompClient.send("/app/ping", {}, "ping");
 
         stompClient.subscribe(`/queue/onlineUsers/${roomCode}`, msg => {
             const users = JSON.parse(msg.body);
@@ -65,6 +76,7 @@ function connectSocket() {
         });
 
         stompClient.subscribe(`/queue/${roomCode}/endTime`, message => {
+
             endTime = message.body;
             console.log("Received endTime:", endTime);
         });
@@ -76,6 +88,8 @@ function connectSocket() {
 
     console.log("Fetching!");
 }
+
+
 
 function updateUserList(users) {
     const userList = document.getElementById('userList');
@@ -118,6 +132,7 @@ function flushCandidates() {
 
 function startCall() {
     if (!targetUser) return alert("Enter a username to call");
+
 
     sendSignal("call", null);
     stompClient.send(`/app/${roomCode}/flag`, {}, '0');
@@ -243,6 +258,7 @@ function endCall(fromRemote = false) {
     if (!fromRemote) {
         endTime = new Date();
         endTime = getLocalFormattedTime(endTime);
+
         stompClient.send(`/app/${roomCode}/endTime`, {}, endTime);
         sendSignal("end", "end-call");
     }

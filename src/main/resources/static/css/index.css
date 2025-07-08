@@ -18,6 +18,29 @@ body {
             transition: 0.3s ease-in-out;
         }
 
+        .demo-box-sm {
+            background: linear-gradient(135deg, #ff0066, #ffcc00);
+            color: white;
+            border: 3px solid white;
+            box-shadow: 0 0 15px rgba(255, 0, 102, 0.8);
+            animation: glowPulseSm 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulseSm {
+            0% {
+                box-shadow: 0 0 8px rgba(255, 0, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 18px rgba(255, 204, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 8px rgba(255, 0, 102, 0.7);
+            }
+        }
+
+
+
+
         .btn-dashboard:hover {
             background-color: #5a35a1;
             color: white;
